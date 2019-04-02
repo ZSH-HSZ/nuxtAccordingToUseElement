@@ -1,22 +1,16 @@
 # nuxtAccordingToUseElement
 
-> My geometric Nuxt.js project
+> nuxt 按需引入 element 和 cookie验证
 
 ## Build Setup
 
 ``` bash
-# install dependencies
-$ yarn install
+$ yarn or npm install
 
-# serve with hot reload at localhost:3000
-$ yarn run dev
+$ yarn or npm run dev
 
-# build for production and launch server
-$ yarn run build
-$ yarn start
+$ yarn or npm run build
+$ yarn or npm start
 
-# generate static project
-$ yarn run generate
+$ yarn or npm run generate
 ```
-
-For detailed explanation on how things work, checkout [Nuxt.js docs](https://nuxtjs.org).
