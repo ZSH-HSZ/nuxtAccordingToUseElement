@@ -45,7 +45,10 @@ module.exports = {
   */
   modules: [
   ],
-
+  serverMiddleware: [
+    // 'redirect-ssl',
+    { path: '/userLogin', handler: '~/api/userLogin.js' },
+  ],
   /*
   ** Build configuration
   */

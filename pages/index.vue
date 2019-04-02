@@ -18,16 +18,38 @@
 
 <script>
   import Logo from '~/components/Logo.vue'
-
+  import { post, get } from '~/api/index'
+  import axios from 'axios'
   export default {
     components: {
       Logo
+    },
+    async asyncData({
+			store,
+			route,
+      userAgent,
+      req
+		}) {
+      // const allData = await Promise.all([
+      //   get('hotOpusList', req.headers.cookie, {}, {page: 25, index: route.query.index||1,tag: route.query.tag||'', timeFilter: route.query.date||'',sort: 'views', order: 'desc'})
+      // ])
+      // return {
+      //   allData
+      // }
     },
     data() {
       return {
         loading: false,
         dialogVisible: false
       }
+    },
+    mounted() {
+      setTimeout(()=>{
+        axios.get('/userLogin')
+        .then(res=>{
+          console.log(res)
+        })
+      }, 2000)
     },
   }
 
