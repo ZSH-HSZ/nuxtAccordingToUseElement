@@ -30,12 +30,13 @@
       userAgent,
       req
 		}) {
-      // const allData = await Promise.all([
-      //   get('hotOpusList', req.headers.cookie, {}, {page: 25, index: route.query.index||1,tag: route.query.tag||'', timeFilter: route.query.date||'',sort: 'views', order: 'desc'})
-      // ])
-      // return {
-      //   allData
-      // }
+      // 验证cookie
+      const allData = await Promise.all([
+        get('hotOpusList', req.headers.cookie, {}, {page: 25, index: route.query.index||1,tag: route.query.tag||'', timeFilter: route.query.date||'',sort: 'views', order: 'desc'})
+      ])
+      return {
+        allData
+      }
     },
     data() {
       return {
@@ -44,6 +45,9 @@
       }
     },
     mounted() {
+      // 获取cookie
+      // 因为我这里跨域了，懒得用proxy，就用了中间层，如果做了跨域处理就可以直接
+      // 进行登录，不需要再这样做后台处理了
       setTimeout(()=>{
         axios.get('/userLogin')
         .then(res=>{
