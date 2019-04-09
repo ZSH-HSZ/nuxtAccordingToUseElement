@@ -1,6 +1,9 @@
 <template>
   <section class="container">
     <logo />
+    <no-ssr>
+      <v-select v-model="selected" :options="['foo','bar']"></v-select>
+    </no-ssr>
     <el-button class="spacing" v-loading="loading" @click="loading=true">我是element-ui 的button</el-button>
     <el-button class="spacing" @click="dialogVisible = true">点击打开 Dialog</el-button>
     <el-tooltip class="spacing" content="Top center" placement="top">
@@ -31,17 +34,18 @@
       req
 		}) {
       // 验证cookie
-      const allData = await Promise.all([
-        get('hotOpusList', req.headers.cookie, {}, {page: 25, index: route.query.index||1,tag: route.query.tag||'', timeFilter: route.query.date||'',sort: 'views', order: 'desc'})
-      ])
-      return {
-        allData
-      }
+      // const allData = await Promise.all([
+      //   get('hotOpusList', req.headers.cookie, {}, {page: 25, index: route.query.index||1,tag: route.query.tag||'', timeFilter: route.query.date||'',sort: 'views', order: 'desc'})
+      // ])
+      // return {
+      //   allData
+      // }
     },
     data() {
       return {
         loading: false,
-        dialogVisible: false
+        dialogVisible: false,
+        selected: 'foo'
       }
     },
     mounted() {

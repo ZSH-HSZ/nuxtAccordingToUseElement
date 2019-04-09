@@ -37,6 +37,10 @@ module.exports = {
   plugins: [
     {
       src:'~/plugins/element',
+    },
+    {
+      src:'~/plugins/v-select.js',
+      ssr:false
     }
   ],
 
