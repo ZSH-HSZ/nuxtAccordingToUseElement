@@ -9,6 +9,7 @@
 <script>
   import axios from 'axios'
   export default {
+    
     async asyncData({req}) {
       let road = req.url.split('/')
       let index = road[road.length-2]

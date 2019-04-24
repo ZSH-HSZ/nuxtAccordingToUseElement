@@ -16,6 +16,7 @@
         <el-button type="primary" @click="dialogVisible = false">确 定</el-button>
       </span>
     </el-dialog>
+    <nuxt-link to="/linking">链接</nuxt-link>
   </section>
 </template>
 
@@ -24,6 +25,11 @@
   import { post, get } from '~/api/index'
   import axios from 'axios'
   export default {
+    head () {
+      return {
+        title: 'test11111'
+      }
+    },
     components: {
       Logo
     },
