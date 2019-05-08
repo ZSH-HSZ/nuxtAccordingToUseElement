@@ -4,7 +4,9 @@
     <no-ssr>
       <v-select v-model="selected" :options="['foo','bar']"></v-select>
     </no-ssr>
-    <el-button class="spacing" v-loading="loading" @click="loading=true">我是element-ui 的button</el-button>
+    <div @contextmenu="testRightClock">fsdafasdfasdfsdaf</div>
+    <el-button class="spacing" v-loading="loading" @click="loading=true">我是element-ui 的button
+    </el-button>
     <el-button class="spacing" @click="dialogVisible = true">点击打开 Dialog</el-button>
     <el-tooltip class="spacing" content="Top center" placement="top">
       <el-button>Dark</el-button>
@@ -22,48 +24,56 @@
 
 <script>
   import Logo from '~/components/Logo.vue'
-  import { post, get } from '~/api/index'
+  import {
+    post,
+    get
+  } from '~/api/index'
   import axios from 'axios'
+  import {
+    component as VueContextMenu
+  } from '@xunlei/vue-context-menu'
   export default {
-    head () {
+    head() {
       return {
         title: 'test11111'
       }
     },
     components: {
-      Logo
+      Logo,
+      'vue-context-menu': VueContextMenu
     },
     async asyncData({
-			store,
-			route,
+      store,
+      route,
       userAgent,
       req
-		}) {
+    }) {
       // 验证cookie
-      // const allData = await Promise.all([
-      //   get('hotOpusList', req.headers.cookie, {}, {page: 25, index: route.query.index||1,tag: route.query.tag||'', timeFilter: route.query.date||'',sort: 'views', order: 'desc'})
-      // ])
-      // return {
-      //   allData
-      // }
+      console.log(req.headers.cookie)
+      const allData = await Promise.all([
+        get('users'),
+        get('getIndex')
+      ])
+      return {
+        allData
+      }
     },
     data() {
       return {
         loading: false,
         dialogVisible: false,
-        selected: 'foo'
+        selected: 'foo',
+        contextMenuTarget: ''
       }
     },
     mounted() {
-      // 获取cookie
-      // 因为我这里跨域了，懒得用proxy，就用了中间层，如果做了跨域处理就可以直接
-      // 进行登录，不需要再这样做后台处理了
-      setTimeout(()=>{
-        axios.get('/userLogin')
-        .then(res=>{
-          console.log(res)
-        })
-      }, 2000)
+      console.log(this.allData)
+      // axios.get('/userLogin')
+    },
+    methods: {
+      testRightClock(val) {
+        console.log(val)
+      }
     },
   }
 

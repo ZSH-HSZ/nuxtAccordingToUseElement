@@ -1,22 +1,23 @@
 import axios from 'axios'
 const methods = ["get", "post", "delete", "put", "patch"];
 const baseUrl = {
-  development: "http://192.168.10.222:60021/v1.0.0",
-  production: "http://192.168.10.222:60021/v1.0.0"
+  development: "http://api.ybw.cn",
+  production: "http://api.ybw.cn"
 }
 export const [get, post, del, put, patch] = methods.map(action => {
-  return (road, cookie, data, params) => {
+  return (road, data, params) => {
     console.log(reqRoad(action, road, data, params),)
     return axios({
       method: action,
       url: reqRoad(action, road, data, params),
       data: action !== 'get' ? params : null,
-      headers: {cookie}
+      withCredentials: true
     })
     .then(res => {
       return res.data
     })
     .catch(err => {
+      console.log(err)
       return {
         code: '9000001',
         data: '数据错误'
@@ -27,8 +28,8 @@ export const [get, post, del, put, patch] = methods.map(action => {
 })
 const apis = {
   // 登录
-  login: '/user',
-  hotOpusList: '/hotOpus'
+  users: '/',
+  getIndex: '/api/getIndex'
 }
 const parseUrl = (url, params) => {
   return (
