@@ -1,9 +1,17 @@
 <template>
   <section class="container">
     <logo />
-    <no-ssr>
+    <!-- <no-ssr>
       <v-select v-model="selected" :options="['foo','bar']"></v-select>
-    </no-ssr>
+    </no-ssr> -->
+    <el-select v-model="value" placeholder="请选择" size='mini'>
+      <el-option
+        v-for="item in options"
+        :key="item.value"
+        :label="item.label"
+        :value="item.value">
+      </el-option>
+    </el-select>
     <div @contextmenu="testRightClock">fsdafasdfasdfsdaf</div>
     <el-button class="spacing" v-loading="loading" @click="loading=true">我是element-ui 的button
     </el-button>
@@ -50,20 +58,37 @@
     }) {
       // 验证cookie
       console.log(req.headers.cookie)
-      const allData = await Promise.all([
-        get('users'),
-        get('getIndex')
-      ])
-      return {
-        allData
-      }
+      // const allData = await Promise.all([
+      //   get('users'),
+      //   get('getIndex')
+      // ])
+      // return {
+      //   allData
+      // }
     },
     data() {
       return {
         loading: false,
         dialogVisible: false,
         selected: 'foo',
-        contextMenuTarget: ''
+        contextMenuTarget: '',
+        options: [{
+          value: '选项1',
+          label: '黄金糕'
+        }, {
+          value: '选项2',
+          label: '双皮奶'
+        }, {
+          value: '选项3',
+          label: '蚵仔煎'
+        }, {
+          value: '选项4',
+          label: '龙须面'
+        }, {
+          value: '选项5',
+          label: '北京烤鸭'
+        }],
+        value: ''
       }
     },
     mounted() {

@@ -16,7 +16,11 @@ module.exports = {
     ],
     link: [
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
-      { rel: 'stylesheet', href: 'https://unpkg.com/element-ui@2.4.11/lib/theme-chalk/index.css' }
+      { rel: 'stylesheet', href: 'https://unpkg.com/element-ui@2.4.11/lib/theme-chalk/index.css' },
+    ],
+    script: [
+      // { src: '/js/hls.js' },
+      // { src: '/js/DPlayer.min.js' },
     ]
   },
 
@@ -28,8 +32,12 @@ module.exports = {
   /*
   ** Global CSS
   */
-  css: [
-  ],
+ css: [
+  {
+    src: '~static/css/video-js.min.css',
+    src: '~static/css/DPlayer.min.css',
+  },
+],
 
   /*
   ** Plugins to load before mounting the App
