@@ -79,6 +79,8 @@ module.exports = {
     analyze: true,
     babel: { //配置按需引入规则
       "plugins": [
+        ["@babel/plugin-proposal-decorators", { legacy: true }],
+        ["@babel/plugin-proposal-class-properties", { loose: true }],
         [
           "component",
           {

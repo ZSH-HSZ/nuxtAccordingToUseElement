@@ -11,9 +11,11 @@
     "generate": "nuxt generate"
   },
   "dependencies": {
+    "@babel/plugin-proposal-class-properties": "^7.5.5",
+    "@babel/plugin-proposal-decorators": "^7.6.0",
+    "@nuxt/babel-preset-app": "^2.10.2",
     "@nuxtjs/axios": "^5.6.0",
     "@nuxtjs/proxy": "^1.3.3",
-    "@xunlei/vue-context-menu": "^1.0.2",
     "axios": "^0.18.0",
     "babel-plugin-component": "^1.1.1",
     "cross-env": "^5.2.0",
@@ -22,6 +24,7 @@
     "express": "^4.16.4",
     "nuxt": "^2.4.0",
     "video.js": "^7.5.4",
+    "vue-prosemirror-editor": "^0.3.9",
     "vue-select": "^2.6.4",
     "vue-video-player": "^5.0.2",
     "vuex-persist": "^2.1.0"
