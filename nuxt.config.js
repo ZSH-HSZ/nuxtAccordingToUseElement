@@ -30,25 +30,19 @@ module.exports = {
       },
     ],
     script: [
-      // { src: '/js/hls.js' },
-      // { src: '/js/DPlayer.min.js' },
+      { src: '/js/hmac-sha256.js' },
+      { src: '/js/enc-base64-min.js' },
+      { src: '/js/base64js.js' },
+      { src: '/js/transform.worker.js' },
     ]
   },
   loading: {
     color: '#fff'
   },
-  css: [{
-    src: '~static/css/video-js.min.css',
-    src: '~static/css/DPlayer.min.css',
-  }, ],
+  css: [],
   plugins: [{
       src: '~/plugins/element',
     },
-    {
-      src: '~/plugins/v-select.js',
-      ssr: false
-    },
-    { src: '~/plugins/vuex-persist', ssr: false }
   ],
   modules: [
     '@nuxtjs/axios',
@@ -79,8 +73,12 @@ module.exports = {
     analyze: true,
     babel: { //配置按需引入规则
       "plugins": [
-        ["@babel/plugin-proposal-decorators", { legacy: true }],
-        ["@babel/plugin-proposal-class-properties", { loose: true }],
+        ["@babel/plugin-proposal-decorators", {
+          legacy: true
+        }],
+        ["@babel/plugin-proposal-class-properties", {
+          loose: true
+        }],
         [
           "component",
           {

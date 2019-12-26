@@ -1,26 +1,32 @@
 <template>
   <div class="VueToNuxtLogo">
-    <input type="text" v-model="curValue">
+    <button @click="writeNumber('1')">+</button>
+    <input
+      v-bind:value="value"
+      @input="$emit('input', $event.target.value)"
+    >
+    <button @click="writeNumber('-1')">-</button>
   </div>
 </template>
 
 
 <script>
 export default {
-  
   props: {
-    curValue: {
-      type: Number,
+    value: {
+      type: String,
     },
   },
-  mounted () {
-    console.log(this.curValue);
-    setTimeout(()=>{
-      this.$emit('update:curValue', 100)
-      setTimeout(()=>{
-        console.log(this.curValue)
-      }, 100)
-    }, 3000)
+  methods: {
+    writeNumber(val) {
+      this.$emit('input', String(Number(this.value)+Number(val)))
+    }
   },
 }
 </script>
+
+<style >
+  .VueToNuxtLogo {
+    display: flex;
+  }
+</style>

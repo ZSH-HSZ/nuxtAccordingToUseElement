@@ -1,0 +1,39 @@
+.flex {
+  display: flex;
+}
+
+.aline {
+  display: flex;
+  align-items: center;
+}
+.align {
+  display: flex;
+  align-items: center;
+}
+
+.direction {
+  display: flex;
+  flex-direction: column;
+}
+
+.around {
+  display: flex;
+  justify-content: space-around;
+}
+.between {
+  display: flex;
+  justify-content: space-between;
+}
+
+.jus {
+  display: flex;
+  justify-content: center;
+}
+
+.flex-all {
+  flex: 1;
+}
+.wrap {
+  flex-wrap: wrap;
+  overflow: hidden;
+}
