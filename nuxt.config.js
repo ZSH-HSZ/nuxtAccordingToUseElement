@@ -39,7 +39,9 @@ module.exports = {
   loading: {
     color: '#fff'
   },
-  css: [],
+  css: [
+    './static/css/index.less',
+  ],
   plugins: [{
       src: '~/plugins/element',
     },
