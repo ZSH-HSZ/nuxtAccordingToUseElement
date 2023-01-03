@@ -25,7 +25,7 @@
     "less": "^3.10.3",
     "less-loader": "^5.0.0",
     "lottie-web": "^5.5.10",
-    "nuxt": "^2.4.0",
+    "nuxt": "^2.15.8",
     "video.js": "^7.5.4",
     "vue-prosemirror-editor": "^0.3.9",
     "vue-select": "^2.6.4",
